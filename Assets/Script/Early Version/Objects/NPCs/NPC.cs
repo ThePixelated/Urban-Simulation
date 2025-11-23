@@ -102,10 +102,20 @@ public class NPC : Objects
         
         var parentLegend = UI_NPC_Target;
         m_TargetNPC.SetParentObj(parentLegend.transform);
+
+        NPCManager.Instance.CountTargetNPC++;
+        //NPCManager.Instance.m_Objects.Add(prefabTG);
+        NPCManager.Instance.m_StatisticUI.TotalObjects++;
+        NPCManager.Instance.m_StatisticUI.UpdateNPCStatisticDisplay();
     }
 
     public void DestroyTarget()
     {
+        NPCManager.Instance.CountTargetNPC--;
+        NPCManager.Instance.m_StatisticUI.TotalObjects--;
+        //NPCManager.Instance.m_Objects.Remove(prefabTG);
+        NPCManager.Instance.m_StatisticUI.UpdateNPCStatisticDisplay();
+
         m_TargetNPC.SetParentObj(prefabTG.transform);
         m_TargetNPC.DestroyObj();
     }

@@ -26,7 +26,7 @@ public class NPC_Move : NPC_Base
 
     public override void DoUpdate(NPC npcData)
     {
-        if (Vector3.Distance(_npcPos, _endPosition) >= 3f)
+        if (Vector3.Distance(_npcPos, _endPosition) >= 1f)
         {
             Debug.Log("Moving..." + Vector3.Distance(_npcPos, _endPosition));
             CalculateMovement();
